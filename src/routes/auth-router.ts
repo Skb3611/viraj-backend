@@ -85,7 +85,7 @@ router.post("/leader/signup", async (req: Request, res: Response) => {
         number,
         password: hashedPassword,
         pincode,
-        img:"",
+        img: "",
         name,
         post,
       },
