@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Citizen {
+  number   String  @id
+  name     String
+  img      String?
+  password String
+  pincode  String
+  issues   Issue[]
+}
+
+model Leader {
+  number   String  @id
+  name     String
+  password String
+  img      String?
+  pincode  String
+  post     String
+  bills    Bill[]
+}
+
+model Issue {
+  id        String      @id @default(uuid())
+  title     String
+  desc      String
+  pincode   String
+  status    IssueStatus @default(open)
+  createdAt DateTime    @default(now())
+  citizenId String
+  citizen   Citizen     @relation(fields: [citizenId], references: [number])
+  comments  Comment[]
+  likes     Int         @default(0)
+}
+
+model Bill {
+  id       String    @id @default(uuid())
+  name     String
+  desc     String
+  leaderId String
+  leader   Leader    @relation(fields: [leaderId], references: [number])
+  comments Comment[]
+  likes    Int       @default(0)
+}
+
+model Comment {
+  id        String   @id @default(uuid())
+  text      String
+  createdAt DateTime @default(now())
+  billId    String
+  bill      Bill?    @relation(fields: [billId], references: [id])
+  issueId   String
+  issue     Issue?   @relation(fields: [issueId], references: [id])
+}
+
+enum IssueStatus {
+  open
+  inProgress
+  closed
+}
