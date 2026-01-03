@@ -1,8 +1,32 @@
 # API Documentation
 
-Base URL: `/api`
+## Dummy User Creds
+
+### Citizen 1 Creds
+
+- **name**: `Rahul Sharma`
+- **Number**: `9876543210`
+- **Password**: `password123`
+### Citizen 2 Creds
+
+- **name**: `Priya Patel`
+- **Number**: `9876543211`
+- **Password**: `password123`
+
+### Leader 1 Creds
+
+- **name**: `Vikram Singh`
+- **Number**: `1122334455`
+- **Password**: `password123`
+### Leader 2 Creds
+
+- **name**: `Anjali Gupta`
+- **Number**: `5544332211`
+- **Password**: `password123`
+
 
 ## Auth Routes
+Base URL: `/api`
 **File**: `src/routes/auth-router.ts`
 Base path: `/auth`
 
