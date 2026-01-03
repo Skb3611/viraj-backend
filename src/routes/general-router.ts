@@ -5,7 +5,9 @@ const router = Router();
 
 router.get("/all-issues", async (req: Request, res: Response) => {
   try {
-    const issues = await prisma.issue.findMany({ include: { comments: true } });
+    const issues = await prisma.issue.findMany({
+      include: { comments: true, citizen: true },
+    });
     return issues
       ? res.status(200).json({ message: "Issues fetched successfully", issues })
       : res.status(400).json({ message: "Issues not fetched" });
@@ -22,7 +24,7 @@ router.get("/get-issue-by-id/:id", async (req: Request, res: Response) => {
     }
     const issue = await prisma.issue.findUnique({
       where: { id },
-      include: { comments: true },
+      include: { comments: true, citizen: true },
     });
     return issue
       ? res.status(200).json({ message: "Issue fetched successfully", issue })
@@ -42,7 +44,7 @@ router.get(
       }
       const issues = await prisma.issue.findMany({
         where: { pincode },
-        include: { comments: true },
+        include: { comments: true, citizen: true },
       });
       return issues
         ? res
@@ -57,7 +59,9 @@ router.get(
 );
 router.get("/get-bills", async (req: Request, res: Response) => {
   try {
-    const bills = await prisma.bill.findMany({include:{comments:true}});
+    const bills = await prisma.bill.findMany({
+      include: { comments: true, leader: true },
+    });
     return bills
       ? res.status(200).json({ message: "Bills fetched successfully", bills })
       : res.status(400).json({ message: "Bills not fetched" });
@@ -74,7 +78,7 @@ router.get("/get-bill/:id", async (req: Request, res: Response) => {
     }
     const bill = await prisma.bill.findUnique({
       where: { id },
-      include: { comments: true },
+      include: { comments: true, leader: true },
     });
     return bill
       ? res.status(200).json({ message: "Bill fetched successfully", bill })
