@@ -290,7 +290,14 @@ Base path: `/` (mounted directly under `/api`)
         "pincode": "string",
         "status": "string",
         "createdAt": "date",
-        "comments": []
+        "comments": [],
+        "citizen": {
+          "id": "string",
+          "name": "string",
+          "number": "string",
+          "img": "string",
+          "pincode": "string"
+        }
       }
     ]
   }
@@ -315,7 +322,14 @@ Base path: `/` (mounted directly under `/api`)
       "pincode": "string",
       "status": "string",
       "createdAt": "date",
-      "comments": []
+      "comments": [],
+      "citizen": {
+        "id": "string",
+        "name": "string",
+        "number": "string",
+        "img": "string",
+        "pincode": "string"
+      }
     }
   }
   ```
@@ -341,7 +355,14 @@ Base path: `/` (mounted directly under `/api`)
         "pincode": "string",
         "status": "string",
         "createdAt": "date",
-        "comments": []
+        "comments": [],
+        "citizen": {
+          "id": "string",
+          "name": "string",
+          "number": "string",
+          "img": "string",
+          "pincode": "string"
+        }
       }
     ]
   }
@@ -366,7 +387,15 @@ Base path: `/` (mounted directly under `/api`)
         "name": "string",
         "desc": "string",
         "createdAt": "date",
-        "comments": []
+        "comments": [],
+        "leader": {
+          "id": "string",
+          "name": "string",
+          "number": "string",
+          "img": "string",
+          "pincode": "string",
+          "post": "string"
+        }
       }
     ]
   }
@@ -389,7 +418,15 @@ Base path: `/` (mounted directly under `/api`)
       "name": "string",
       "desc": "string",
       "createdAt": "date",
-      "comments": []
+      "comments": [],
+      "leader": {
+        "id": "string",
+        "name": "string",
+        "number": "string",
+        "img": "string",
+        "pincode": "string",
+        "post": "string"
+      }
     }
   }
   ```
