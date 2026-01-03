@@ -7,12 +7,17 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["http://localhost:5500", "http://127.0.0.1:5500","https://omkard007.github.io/"],
+    origin: [
+      "http://localhost:5500",
+      "http://127.0.0.1:5500",
+      "https://omkard007.github.io"
+    ],
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     credentials: true,
   })
 );
-app.options("*", cors());
+
+
 app.use(express.json());
 
 app.get("/health", (req, res) => {
