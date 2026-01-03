@@ -21,15 +21,18 @@ router.post("/issue/update-status", async (req: Request, res: Response) => {
 });
 router.post("/bill/add", async (req: Request, res: Response) => {
   try {
-    const { number, name, desc } = req.body;
-    if (!number || !name || !desc) {
-      res.status(400).json({ message: "Number, name and desc are required" });
+    const { number, name, desc, budget } = req.body;
+    if (!number || !name || !desc || !budget) {
+      res
+        .status(400)
+        .json({ message: "Number, name, desc and budget are required" });
     }
     const newBill = await prisma.bill.create({
       data: {
         leaderId: number,
         name,
         desc,
+        budget,
       },
     });
     return newBill

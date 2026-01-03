@@ -386,6 +386,8 @@ Base path: `/` (mounted directly under `/api`)
         "leaderId": "string",
         "name": "string",
         "desc": "string",
+        "budget": "string",
+        "likes": "number",
         "createdAt": "date",
         "comments": [],
         "leader": {
@@ -417,6 +419,8 @@ Base path: `/` (mounted directly under `/api`)
       "leaderId": "string",
       "name": "string",
       "desc": "string",
+      "budget": "string",
+      "likes": "number",
       "createdAt": "date",
       "comments": [],
       "leader": {
