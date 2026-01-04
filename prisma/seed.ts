@@ -70,6 +70,7 @@ async function main() {
       status: "open",
       citizenId: citizen1.number,
       likes: 5,
+      image: "https://media.istockphoto.com/id/1417383593/photo/lights-off.jpg?s=2048x2048&w=is&k=20&c=J3d1yT0Xp7KcXTQvRBC-7RGBqirPhkHJyrR1BZAXFh4=",
     },
   });
 
@@ -81,6 +82,7 @@ async function main() {
       status: "inProgress",
       citizenId: citizen2.number,
       likes: 12,
+      image: "https://imgs.search.brave.com/RQUyUrqjxUn-8GW9agrKIyS8DcVDj2o5GHKtTglEipU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNzAv/NjQ1LzU4Ni9zbWFs/bC9vdmVyZmxvd2lu/Zy1nYXJiYWdlLWNv/bnRhaW5lci13aXRo/LXBsYXN0aWMtYmFn/cy1waG90by5qcGc",
     },
   });
 
@@ -94,6 +96,7 @@ async function main() {
       budget: "500000",
       leaderId: leader1.number,
       likes: 25,
+      image: "https://imgs.search.brave.com/fCtTZfHIRKEaSPjS8PYtBFpsejyEtquXpkaav9V7bYw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMud2Vmb3J1bS5v/cmcvYXJ0aWNsZS9p/bWFnZS9tZ1ZENG9W/dFNHcWRpd1RKUDVp/SkduS0ZBRDEwaVBL/SktJb2I3R3RBdHBV/LkpQRw",
     },
   });
 
@@ -104,6 +107,7 @@ async function main() {
       budget: "1200000",
       leaderId: leader2.number,
       likes: 40,
+      image: "https://imgs.search.brave.com/DJ5sb0udC9bg3_7lS25h6e2fiZztnAqgcJ_B0Z9OOnQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTc4/Mzg0NzQxNy9waG90/by9wdWJsaWMtcGFy/ay1pbi10aGUtY2l0/eS5qcGc_cz02MTJ4/NjEyJnc9MCZrPTIw/JmM9a0I4bU9paXFS/RDdvRHBpTlBYVi1Z/dWRJdExnbURhODFJ/dTZLajVVRTZaTT0",
     },
   });
 

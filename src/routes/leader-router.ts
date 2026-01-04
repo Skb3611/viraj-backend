@@ -1,5 +1,17 @@
 import Router, { Request, Response } from "express";
 import { prisma } from "../libs/prisma";
+import multer from "multer";
+import path from "path";
+const storage = multer.diskStorage({
+  destination: "uploads/",
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname));
+  }
+});
+
+const url = "https://viraj-backend.onrender.com";
+
+const upload = multer({ storage });
 
 const router = Router();
 
@@ -19,7 +31,7 @@ router.post("/issue/update-status", async (req: Request, res: Response) => {
       })
     : res.status(400).json({ message: "Issue not updated" });
 });
-router.post("/bill/add", async (req: Request, res: Response) => {
+router.post("/bill/add", upload.single("image"), async (req: Request, res: Response) => {
   try {
     const { number, name, desc, budget } = req.body;
     if (!number || !name || !desc || !budget) {
@@ -33,6 +45,7 @@ router.post("/bill/add", async (req: Request, res: Response) => {
         name,
         desc,
         budget,
+        image : req.file ? url + "/" + req.file.path : null,
       },
     });
     return newBill

@@ -37,6 +37,7 @@ model Issue {
   title     String
   desc      String
   pincode   String
+  image     String?
   status    IssueStatus @default(open)
   createdAt DateTime    @default(now())
   citizenId String
@@ -49,6 +50,7 @@ model Bill {
   id       String    @id @default(uuid())
   name     String
   desc     String
+  image     String?
   budget   String    @default("0")
   leaderId String
   leader   Leader    @relation(fields: [leaderId], references: [number])
