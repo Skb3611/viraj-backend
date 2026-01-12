@@ -26,9 +26,9 @@ router.post("/issue/update-status", async (req: Request, res: Response) => {
   });
   return updatedIssue
     ? res.status(201).json({
-        message: "Issue updated successfully",
-        issue: updatedIssue,
-      })
+      message: "Issue updated successfully",
+      issue: updatedIssue,
+    })
     : res.status(400).json({ message: "Issue not updated" });
 });
 router.post("/bill/add", upload.single("image"), async (req: Request, res: Response) => {
@@ -45,14 +45,14 @@ router.post("/bill/add", upload.single("image"), async (req: Request, res: Respo
         name,
         desc,
         budget,
-        image : req.file ? url + "/" + req.file.path : null,
+        image: req.file ? url + "/" + req.file.path : null,
       },
     });
     return newBill
       ? res.status(201).json({
-          message: "Bill created successfully",
-          bill: newBill,
-        })
+        message: "Bill created successfully",
+        bill: newBill,
+      })
       : res.status(400).json({ message: "Bill not created" });
   } catch (e) {
     console.log(e);
@@ -70,14 +70,31 @@ router.post("/bill/delete", async (req: Request, res: Response) => {
     });
     return deletedBill
       ? res.status(201).json({
-          message: "Bill deleted successfully",
-          bill: deletedBill,
-        })
+        message: "Bill deleted successfully",
+        bill: deletedBill,
+      })
       : res.status(400).json({ message: "Bill not deleted" });
   } catch (e) {
     console.log(e);
     return res.status(500).json({ message: "Internal server error" });
   }
 });
+
+router.get("/bills/:leaderId", async (req: Request, res: Response) => {
+  try {
+    const { leaderId } = req.params;
+    const bills = await prisma.bill.findMany({
+      where: {
+        leaderId: leaderId
+      }
+    })
+    return bills ?
+      res.status(200).json({ message: "Bills fetched successfully", bills })
+      : res.status(400).json({ message: "Bills not fetched" })
+  } catch (e) {
+    console.log(e);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+})
 
 export default router;

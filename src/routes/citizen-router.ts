@@ -38,8 +38,8 @@ router.post(
       });
       return newIssue
         ? res
-            .status(201)
-            .json({ message: "Issue created successfully", issue: newIssue })
+          .status(201)
+          .json({ message: "Issue created successfully", issue: newIssue })
         : res.status(400).json({ message: "Issue not created" });
     } catch (e) {
       console.log(e);
@@ -62,6 +62,23 @@ router.post("/issue/delete", async (req: Request, res: Response) => {
     ? res.status(200).json({ message: "Issue deleted successfully", issue })
     : res.status(400).json({ message: "Issue not deleted" });
 });
+router.get("/issues/:citizenId", async (req: Request, res: Response) => {
+  try {
+
+    const { citizenId } = req.params;
+    const issues = await prisma.issue.findMany({
+      where: {
+        citizenId: citizenId,
+      },
+    });
+    issues
+      ? res.status(200).json({ message: "Issues fetched successfully", issues })
+      : res.status(400).json({ message: "Issues not fetched" });
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ message: "Internal server error" });
+  }
+})
 // router.post("/issue/update", (req, res) => {});
 
 export default router;
