@@ -28,7 +28,7 @@ model Leader {
   password String
   img      String?
   pincode  String
-  post     String
+  post     String?
   bills    Bill[]
 }
 
