@@ -22,6 +22,7 @@ app.use(
       "http://localhost:5500",
       "http://127.0.0.1:5500",
       "https://omkard007.github.io",
+      "http://127.0.0.1:3000",
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     credentials: true,
